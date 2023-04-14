@@ -6,6 +6,7 @@ library(dplyr)
 library(stringr)
 library(waiter)
 
+# CHANGE THIS TO YOUR OWN SERVICE ACCOUNT KEY
 bigrquery::bq_auth(path = "mlflow-291816-6d2188fa7f42.json")
 
 ui <- fluidPage(
@@ -25,7 +26,7 @@ server <- function(input, output) {
       bigrquery::bigquery(),
       project = "lens-public-data",
       dataset = "polygon",
-      billing = "mlflow-291816"
+      billing = "mlflow-291816" # CHANGE THIS TO YOUR OWN BILLING ACCOUNT
     )
     
     if (!is.null(input$query)) {
